@@ -11,3 +11,5 @@ dependencies {
 tasks.withType(Test) {
     systemProperty "cuentica.token", System.getProperty('cuentica.token')
 }
+
+apply from: "${rootProject.projectDir}/gradle/testVerbose.gradle"
