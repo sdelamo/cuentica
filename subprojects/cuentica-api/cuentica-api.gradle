@@ -1,0 +1,13 @@
+plugins {
+    id 'java-library'
+    id 'groovy'
+}
+
+dependencies {
+    compile "io.micronaut:micronaut-http-client:$micronautVersion"
+    testImplementation "org.spockframework:spock-core:$spockVersion"
+}
+
+tasks.withType(Test) {
+    systemProperty "cuentica.token", System.getProperty('cuentica.token')
+}

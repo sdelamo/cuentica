@@ -1,0 +1,51 @@
+plugins {
+    id 'org.kordamp.gradle.project' version '0.9.0'
+    id 'org.kordamp.gradle.bintray' version '0.9.0'
+}
+
+config {
+    release = (rootProject.findProperty('release') ?: false).toBoolean()
+
+    info {
+        name        = 'Cuentica'
+        vendor      = 'Sergio del Amo'
+        description = 'Java library to consume cuentica API'
+
+        links {
+            website      = 'https://github.com/sdelamo/cuentica'
+            issueTracker = 'https://github.com/sdelamo/cuentica/issues'
+            scm          = 'https://github.com/sdelamo/cuentica.git'
+        }
+
+        people {
+            person {
+                id    = 'sdelamo'
+                name  = 'Sergio del Amo'
+                roles = ['developer']
+            }
+        }
+    }
+
+    license {
+        licenses {
+            license {
+                id = 'Apache-2.0'
+            }
+        }
+    }
+    bintray {
+        credentials {
+            username = System.getenv('BINTRAY_USERNAME') ?: project.bintrayUsername
+            password = System.getenv('BINTRAY_APIKEY') ?: project.bintrayApiKey
+        }
+        userOrg    = 'sdelamo'
+        name       = rootProject.name
+        githubRepo = 'sdelamo/cuentica'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
