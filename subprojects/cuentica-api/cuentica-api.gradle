@@ -5,6 +5,7 @@ plugins {
 
 dependencies {
     compile "io.micronaut:micronaut-http-client:$micronautVersion"
+    testImplementation "org.codehaus.groovy:groovy-all:$groovyVersion"
     testImplementation "org.spockframework:spock-core:$spockVersion"
 }
 
