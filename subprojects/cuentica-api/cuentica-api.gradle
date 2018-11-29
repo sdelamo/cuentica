@@ -11,5 +11,10 @@ dependencies {
 tasks.withType(Test) {
     systemProperty "cuentica.token", System.getProperty('cuentica.token')
 }
+config {
+    groovydoc {
+        enabled = false
+    }
+}
 
 apply from: "${rootProject.projectDir}/gradle/testVerbose.gradle"
